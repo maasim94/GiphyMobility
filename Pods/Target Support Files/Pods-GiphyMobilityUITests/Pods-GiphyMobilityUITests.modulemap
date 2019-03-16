@@ -1,0 +1,6 @@
+framework module Pods_GiphyMobilityUITests {
+  umbrella header "Pods-GiphyMobilityUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

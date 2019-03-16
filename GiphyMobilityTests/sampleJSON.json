@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "type": "gif",
+      "id": "8vEZSnXvT4OrY7ScSz",
+      "slug": "nbc-agt-screaming-americas-got-talent-8vEZSnXvT4OrY7ScSz",
+      "images": {
+        "fixed_width": {
+          "url": "https://media3.giphy.com/media/8vEZSnXvT4OrY7ScSz/200w.gif?cid=e1bb72ff5c88e3562e536a5a41e2ab63",
+          "width": "200",
+          "height": "112",
+          "size": "235005",
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "total_count": 106349,
+    "count": 25,
+    "offset": 25
+  }
+}
