@@ -27,14 +27,14 @@ class GiphyListViewControllerTests: XCTestCase {
         viewControllerUnderTest = nil
     }
     //MARK:- Collectionview
-    func testViewControllerIsComposeOfTableView() {
+    func testViewControllerIsComposeOfCollectionView() {
         XCTAssertNotNil(viewControllerUnderTest.collectionView,"ViewController under test is not composed of a UICollectionView")
     }
     func testControllerConformsToCollectionViewDelegate() {
-        XCTAssertNotNil(viewControllerUnderTest.conforms(to: UICollectionViewDelegate.self),"ViewController under test  does not conform to UICollectionViewDelegate protocol")
+        XCTAssert(viewControllerUnderTest.conforms(to: UICollectionViewDelegate.self), "ViewController under test  does not conform to UICollectionViewDelegate protocol")
     }
     func testControllerConformsToCollectionViewDataSource() {
-        XCTAssertNotNil(viewControllerUnderTest.conforms(to: UICollectionViewDataSource.self),"ViewController under test  does not conform to UICollectionViewDataSource protocol")
+        XCTAssert(viewControllerUnderTest.conforms(to: UICollectionViewDataSource.self),"ViewController under test  does not conform to UICollectionViewDataSource protocol")
     }
     func testCollectionViewDelegateIsSet() {
         XCTAssertNotNil(self.viewControllerUnderTest.collectionView.delegate)

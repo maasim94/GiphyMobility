@@ -11,7 +11,7 @@ class GiphyListViewController: UIViewController {
     // MARK: - properties
     fileprivate let segueIdentifier = "toFullScreenGIF"
     @IBOutlet weak var collectionView: UICollectionView!
-    let viewModel = GiphyListViewModel(dataFetcher: GiphyDataFetcher())
+    let viewModel = GiphyListViewModel(dataFetcher: GiphyDataFetcher(url: Constant.giphyURL, network: Network()))
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()

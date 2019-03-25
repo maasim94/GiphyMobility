@@ -25,7 +25,7 @@ struct GiphyItem: Mappable, Equatable {
     fileprivate(set) var downsizedImage: GiphyImageSet?
     fileprivate(set) var downsizedLargeImage: GiphyImageSet?
     fileprivate(set) var originalImage: GiphyImageSet?
-    
+    fileprivate var imageSetsForConsideration: [GiphyImageSet] = []
     init?(map: Map) { }
     
     mutating func mapping(map: Map) {
@@ -42,6 +42,19 @@ struct GiphyItem: Mappable, Equatable {
         downsizedImage                  <- map["images.downsized"]
         downsizedLargeImage             <- map["images.downsized_large"]
         originalImage                   <- map["images.original"]
+        
+        var imageSetsForConsiderationOptional = [GiphyImageSet?]()
+        imageSetsForConsiderationOptional.append(fixedHeightImage)
+        imageSetsForConsiderationOptional.append(fixedHeightDownsampledImage)
+        imageSetsForConsiderationOptional.append(fixedWidthImage)
+        imageSetsForConsiderationOptional.append(fixedWidthDownsampledImage)
+        imageSetsForConsiderationOptional.append(fixedHeightSmallImage)
+        imageSetsForConsiderationOptional.append(fixedWidthSmallImage)
+        imageSetsForConsiderationOptional.append(downsizedImage)
+        imageSetsForConsiderationOptional.append(downsizedLargeImage)
+        imageSetsForConsiderationOptional.append(originalImage)
+        imageSetsForConsideration = imageSetsForConsiderationOptional.compactMap({$0})
+        
     }
     
     /// get imageSet to show to user
@@ -49,57 +62,14 @@ struct GiphyItem: Mappable, Equatable {
     /// - Parameter width: expected width of image
     /// - Returns: opional ImageSet
     func imageSetClosestTo(width: CGFloat) -> GiphyImageSet? {
-        
-        var imageSetsForConsideration = [GiphyImageSet]()
-        if fixedHeightImage != nil {
-            imageSetsForConsideration.append(fixedHeightImage!)
-        }
-        if fixedHeightDownsampledImage != nil {
-            imageSetsForConsideration.append(fixedHeightDownsampledImage!)
-        }
-        if fixedWidthImage != nil {
-            imageSetsForConsideration.append(fixedWidthImage!)
-        }
-        
-        if fixedWidthDownsampledImage != nil {
-            imageSetsForConsideration.append(fixedWidthDownsampledImage!)
-        }
-        
-        if fixedHeightSmallImage != nil {
-            imageSetsForConsideration.append(fixedHeightSmallImage!)
-        }
-        
-        if fixedWidthSmallImage != nil {
-            imageSetsForConsideration.append(fixedWidthSmallImage!)
-        }
-        
-        if downsizedImage != nil {
-            imageSetsForConsideration.append(downsizedImage!)
-        }
-        
-        if downsizedLargeImage != nil {
-            imageSetsForConsideration.append(downsizedLargeImage!)
-        }
-        
-        if originalImage != nil {
-            imageSetsForConsideration.append(originalImage!)
-        }
         // Search for matches
-        
         guard imageSetsForConsideration.count > 0 else {
             return nil
         }
-        
-        var currentClosestSizeMatch: GiphyImageSet = imageSetsForConsideration[0]
-        
-        for item in imageSetsForConsideration
-        {
-            if item.width >= Int(width) && item.width < currentClosestSizeMatch.width
-            {
-                currentClosestSizeMatch = item
-            }
+        if let closestValue = imageSetsForConsideration.enumerated().min(by: { abs($0.1.width - Int(width)) < abs($1.1.width - Int(width)) }) {
+            return closestValue.element
         }
-        
-        return currentClosestSizeMatch
+        // we want to return somthing if we don't have value above
+        return imageSetsForConsideration[0]
     }
 }

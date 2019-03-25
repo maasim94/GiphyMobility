@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C19869F6ECEDD24DE9B7681D /* Pods_GiphyMobilityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518AA50F9F1B6CA47EFC5F46 /* Pods_GiphyMobilityUITests.framework */; };
 		D76CE2D1F1A6E734CDD26C2A /* Pods_GiphyMobility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668F26EB74B4F8CB023E2735 /* Pods_GiphyMobility.framework */; };
+		EA2FE43422493ED9004DAF31 /* GiphyNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FE43322493ED9004DAF31 /* GiphyNetworkTests.swift */; };
 		EC6FD3BF223917F5001DDCFF /* GiphyModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6FD3BE223917F5001DDCFF /* GiphyModelTests.swift */; };
 		EC6FD3C1223A1816001DDCFF /* sampleJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = EC6FD3C0223A1816001DDCFF /* sampleJSON.json */; };
 		EC6FD3C3223A1CC4001DDCFF /* sampleJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = EC6FD3C0223A1816001DDCFF /* sampleJSON.json */; };
@@ -64,6 +65,7 @@
 		9FEB3831E8365D3529C70110 /* Pods_GiphyMobilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphyMobilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75704F542D660EC0CBAAD0E /* Pods-GiphyMobilityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyMobilityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyMobilityTests/Pods-GiphyMobilityTests.release.xcconfig"; sourceTree = "<group>"; };
 		E996CA232864CE2DEF64ADFF /* Pods-GiphyMobilityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyMobilityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyMobilityTests/Pods-GiphyMobilityTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA2FE43322493ED9004DAF31 /* GiphyNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyNetworkTests.swift; sourceTree = "<group>"; };
 		EC6FD3BE223917F5001DDCFF /* GiphyModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyModelTests.swift; sourceTree = "<group>"; };
 		EC6FD3C0223A1816001DDCFF /* sampleJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleJSON.json; sourceTree = "<group>"; };
 		EC6FD3C4223A200F001DDCFF /* GiphyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyListViewModelTests.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				EC6FD3C4223A200F001DDCFF /* GiphyListViewModelTests.swift */,
 				EC6FD3C6223A374C001DDCFF /* GiphyListViewControllerTests.swift */,
 				EC6FD3CB223A5386001DDCFF /* GiphyFullViewModelTests.swift */,
+				EA2FE43322493ED9004DAF31 /* GiphyNetworkTests.swift */,
 			);
 			path = GiphyMobilityTests;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			files = (
 				EC6FD3C5223A200F001DDCFF /* GiphyListViewModelTests.swift in Sources */,
 				EC6FD3BF223917F5001DDCFF /* GiphyModelTests.swift in Sources */,
+				EA2FE43422493ED9004DAF31 /* GiphyNetworkTests.swift in Sources */,
 				EC6FD3C7223A374C001DDCFF /* GiphyListViewControllerTests.swift in Sources */,
 				EC6FD3CC223A5386001DDCFF /* GiphyFullViewModelTests.swift in Sources */,
 			);

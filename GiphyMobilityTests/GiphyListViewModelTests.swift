@@ -44,10 +44,12 @@ class GiphyListViewModelTests: XCTestCase {
 // MARK: MockGiphyDataFetcher
 /// A mock for data fetcher to provide test data.
 class MockGiphyDataFetcher: GiphyDataFetcherProtocol {
+    var url: URL
     fileprivate var maxSizeInBytes: Int = 2048000 // 2MB size cap of gif
     var gifys:[GiphyItem] = []
     var fullGIFResponse: GiphyResponse?
     init() {
+        url = Constant.giphyURL // not needed
         let bundle = Bundle(for: type(of: self))
         guard let path = bundle.path(forResource: "sampleJSON", ofType: "json") else {
             return
