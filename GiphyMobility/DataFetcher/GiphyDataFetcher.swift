@@ -38,11 +38,6 @@ class GiphyDataFetcher: GiphyDataFetcherProtocol  {
     ///   - offset: The paging offset
     ///   - completion: The completion block to call when done
     func fetchTrendingGifs(limit: Int, offset: Int?, completion: GiphyResponseBlock?) {
-//        guard let url = URL(string:Constant.giphyURL) else {
-//            // incorporate error
-//            completion?(AppError.gernalError(message: Constant.urlNotGood), nil)
-//            return
-//        }
         var params = [String : Any]()
         params["api_key"] = Constant.apiKey
         params["limit"] = limit
@@ -50,17 +45,6 @@ class GiphyDataFetcher: GiphyDataFetcherProtocol  {
             params["offset"] = currentOffset
         }
         self.network.fetchData(from: url, params: params, completion: completion)
-//        let request = Alamofire.request(url, method: .get, parameters: params)
-//        request.responseObject { (responseData:DataResponse<GiphyResponse>) in
-//            if let gifs = responseData.result.value {
-//                DispatchQueue.main.async {
-//                    completion?(nil, gifs)
-//                }
-//            } else {
-//                let errorDes = responseData.result.error?.localizedDescription ?? Constant.unknownResponse
-//                completion?(AppError.gernalError(message:errorDes), nil)
-//            }
-//        }
     }
 }
 protocol NetworkClient  {
